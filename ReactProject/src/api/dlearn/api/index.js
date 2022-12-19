@@ -1,13 +1,6 @@
-// import axios from "axios";
-// import {server, dlearn, vision} from 'context'
-// export const iris = req => axios.post(`${server}${dlearn}iris`, req)
-// export const getFashion = id => axios.get(`${server}${dlearn}fashion?id=${id}`)
-// export const postFashion = id => axios.post(`${server}${dlearn}fashion?id=${id}`)
-
-import axios from "axios";
-import {server, dlearn, vision} from 'context'
+import {server, dlearn} from 'context'
 const dlearnService = {
-    iris, getFashion, postFashion 
+    iris, getFashion, postFashion, postMnist, getMnist
 }
 function handleResponse(response){ 
     return response.text()
@@ -60,6 +53,30 @@ async function getFashion(id){
     .then(data => {
         alert('결과: '+JSON.stringify(data))
     })
-} 
+}
+
+async function postMnist(id){
+    const requestOption = {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(id)
+    }
+    fetch(`${server}${dlearn}mnist`, requestOption)
+    .then(handleResponse)
+    .then(data => {
+        alert('결과: '+JSON.stringify(data))
+    })
+    .catch((error) => {
+        alert('error :::: '+error);
+    });
+}
+
+async function getMnist(id){
+    fetch(`${server}${dlearn}mnist?id=${id}`)
+    .then(handleResponse)
+    .then(data => {
+        alert('결과: '+JSON.stringify(data))
+    })
+}
 
 export default dlearnService

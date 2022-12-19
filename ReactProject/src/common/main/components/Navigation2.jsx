@@ -27,6 +27,7 @@ const Navigation2 =() => {
         <Link to = '/stroke'style={{width:60, margin:10}}>Stroke</Link>
         <Link to = '/iris'style={{width:60, margin:10}}>Iris</Link>
         <Link to = '/fashion'style={{width:60, margin:10}}>Fashion</Link>
+        <Link to = '/mnist'style={{width:60, margin:10}}>Mnist</Link>
       </BottomNavigation>
     </Box>
   );

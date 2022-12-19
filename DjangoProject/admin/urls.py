@@ -18,7 +18,10 @@ from admin.views import hello
 
 urlpatterns = [
     path('', hello),
-    path("admin/analysis/", include('admin.analysis.urls')),
+    path('admin/analysis/', include('admin.analysis.stroke.url')),
+
+
+
     path("admin/dlearn/", include('admin.dlearn.urls')),
     path("admin/mlearn/", include('admin.mlearn.urls')),
     path("admin/nlp/", include('admin.nlp.urls')),
@@ -39,4 +42,5 @@ urlpatterns = [
     path("shop/deliveries/", include('shop.deliveries.urls')),
     path("shop/orders/", include('shop.orders.urls')),
     path("shop/products/", include('shop.products.urls')),
+    path("admin/dlearn/", include('admin.dlearn.mnist.url'))
 ]
