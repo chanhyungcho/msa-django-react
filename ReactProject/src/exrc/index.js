@@ -1,5 +1,5 @@
-export {default as Stroke} from "exrc/analysis/stroke/components/Stroke"
-export {default as StrokeContainer} from "exrc/analysis/stroke/containers/StrokeContainer"
+export {default as Stroke} from "exrc/stroke/components/Stroke"
+export {default as StrokeContainer} from "exrc/stroke/containers/StrokeContainer"
 
 export {default as Login} from "exrc/auth/login/components/Login"
 export {default as LoginContainer} from "exrc/auth/login/containers/LoginContainer"

@@ -5,7 +5,7 @@ import {Navigation2,  Footer} from "common"
 // import image from '../images/fashion.png'
 
 import { Counter, Schedule } from "../../../api"
-import { FashionContainer, IrisContainer, LoginContainer, MnistContainer, SignUpContainer, StrokeContainer } from "exrc"
+import { FashionContainer, IrisContainer, LoginContainer, MnistContainer, SignUpContainer, StrokeContainer,  } from "exrc"
 
 
 const Home = () => {

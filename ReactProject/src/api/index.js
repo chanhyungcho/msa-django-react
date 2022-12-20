@@ -1,7 +1,4 @@
 export {default as Counter} from 'api/basics/components/Counter'
-export {default as Iris} from 'api/dlearn/components/Iris'
-export {default as Fashion} from 'api/dlearn/components/Fashion'
-export {default as Mnist} from 'api/dlearn/components/Mnist'
 export {default as AddTodo} from 'api/todos/components/AddTodo'
 export {default as Todo} from 'api/todos/components/Todo'
 export {default as TodoList} from 'api/todos/components/TodoList'

@@ -24,7 +24,7 @@ async function postMnist(id){
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(id)
     }
-    fetch(`${server}admin/dlearn/mnist`, requestOption)
+    fetch(`${server}exrc/dlearn/mnist`, requestOption)
     .then(handleResponse)
     .then(data => {
         alert('결과: '+JSON.stringify(data))
@@ -35,7 +35,7 @@ async function postMnist(id){
 }
 
 async function getMnist(id){
-    fetch(`${server}admin/dlearn/mnist?id=${id}`)
+    fetch(`${server}exrc/dlearn/mnist?id=${id}`)
     .then(handleResponse)
     .then(data => {
         alert('결과: '+JSON.stringify(data))

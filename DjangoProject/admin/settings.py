@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'multiplex',
     'shop',
-    'security',
+    'exrc',
     "rest_framework"
 ]
 

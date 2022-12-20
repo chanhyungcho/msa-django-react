@@ -24,7 +24,7 @@ async function iris(id){
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(id)
     }
-    fetch(`${server}admin/dlearn/iris`, requestOption)
+    fetch(`${server}exrc/dlearn/iris`, requestOption)
     .then(handleResponse)
     .then(data => {
         alert(JSON.stringify(data))

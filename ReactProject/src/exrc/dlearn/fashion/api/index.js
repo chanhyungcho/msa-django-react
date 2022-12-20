@@ -26,7 +26,7 @@ async function postFashion(id){
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(id)
     }
-    fetch(`${server}admin/dlearn/fashion`, requestOption)
+    fetch(`${server}exrc/dlearn/fashion`, requestOption)
     .then(handleResponse)
     .then(data => {
         alert('결과: '+JSON.stringify(data))
@@ -36,7 +36,7 @@ async function postFashion(id){
     });
 }
 async function getFashion(id){
-    fetch(`${server}admin/dlearn/fashion?id=${id}`)
+    fetch(`${server}exrc/dlearn/fashion?id=${id}`)
     .then(handleResponse)
     .then(data => {
         alert('결과: '+JSON.stringify(data))

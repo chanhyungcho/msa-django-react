@@ -18,14 +18,21 @@ from admin.views import hello
 
 urlpatterns = [
     path('', hello),
-    path('admin/analysis/', include('admin.analysis.stroke.url')),
+
+    path('exrc/auth/', include('exrc.auth.login.url')),
+    path('exrc/auth/', include('exrc.auth.signup.url')),
+    path("exrc/dlearn/", include('exrc.dlearn.iris.url')),
+    path("exrc/dlearn/", include('exrc.dlearn.mnist.url')),
+    path("exrc/dlearn/", include('exrc.dlearn.fashion.url')),
+    path('exrc/stroke/', include('exrc.stroke.url')),
 
 
 
-    path("admin/dlearn/", include('admin.dlearn.urls')),
-    path("admin/mlearn/", include('admin.mlearn.urls')),
-    path("admin/nlp/", include('admin.nlp.urls')),
-    path("admin/vision/", include('admin.vision.urls')),
+
+
+    path("admin/mlearn/", include('exrc.mlearn.urls')),
+
+    path("admin/vision/", include('exrc.vision.urls')),
     path("blog/comments/", include('blog.comments.urls')),
     path("blog/posts/", include('blog.posts.urls')),
     path("blog/tags/", include('blog.tags.urls')),
@@ -36,11 +43,11 @@ urlpatterns = [
     path("multiplex/showtimes/", include('multiplex.showtimes.urls')),
     path("multiplex/theatertickets/", include('multiplex.theatertickets.urls')),
     path("multiplex/theaters/", include('multiplex.theaters.urls')),
-    path("security/users/", include('security.users.urls')),
+
     path("shop/carts/", include('multiplex.movies.urls')),
     path("shop/categories/", include('shop.categories.urls')),
     path("shop/deliveries/", include('shop.deliveries.urls')),
     path("shop/orders/", include('shop.orders.urls')),
     path("shop/products/", include('shop.products.urls')),
-    path("admin/dlearn/", include('admin.dlearn.mnist.url'))
+    path("admin/dlearn/", include('exrc.dlearn.mnist.url'))
 ]
