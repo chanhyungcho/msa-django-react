@@ -2,17 +2,18 @@ import csv
 import urllib
 from urllib.request import urlopen
 
+import pandas as pd
 from bs4 import BeautifulSoup
-from selenium.webdriver.chrome import webdriver
+from selenium import webdriver
 
 from webcrawler.models import ScrapVO
-
+import os.path
 
 class ScrapService(ScrapVO):
     def __init__(self):
         global driverpath, naver_url, savepath, encoding
         driverpath = r'C:\Users\AIA\MsaProject\DjangoProject\webcrawler\chromedriver.exe'
-        savepath = r'C:\Users\AIA\MsaProject\DjangoProject\webcrawler\save'
+        savepath = r'C:\Users\AIA\MsaProject\DjangoProject\webcrawler\movie.csv'
         naver_url = 'https://movie.naver.com/movie/sdb/rank/rmovie.naver'
         encoding = 'UTF-8'
 
@@ -53,12 +54,59 @@ class ScrapService(ScrapVO):
         arg.dataframe_to_csv()  # csv파일로 저장
 
     def naver_movie_review(self):
-        driver = webdriver.Chrome(f"{driverpath}\\chromedriver")
-        driver.get(naver_url)
-        soup = BeautifulSoup(driver.page.source, 'html.parser')
-        all_divs = soup.find_all('div',attrs={'class', 'tit3'})
-        products = [[div.a.string for div in all_divs]]
-        with open(savepath, 'w', newline='', encoding=encoding) as f:
-            wr = csv.writer(f)
-            wr.writerows(products)
-        driver.close()
+        file = r'C:\Users\AIA\MsaProject\DjangoProject\webcrawler\movie.csv'
+        print(os.path.isfile(file))
+        if os.path.isfile(file) == True:
+            rank = pd.read_csv(r'C:\Users\AIA\MsaProject\DjangoProject\webcrawler\movie.csv')
+            result = [f'{i+1}위 : {j}' for i,j in enumerate(rank)]
+            return result[0]
+        elif os.path.isfile(file) == False:
+            driver = webdriver.Chrome(driverpath)
+            driver.get(naver_url)
+            soup = BeautifulSoup(driver.page_source, 'html.parser')
+            all_divs = soup.find_all('div', attrs={'class', 'tit3'})
+            products = [[div.a.string for div in all_divs]]
+            with open(savepath, 'w', newline='', encoding=encoding) as f:
+                wr = csv.writer(f)
+                wr.writerows(products)
+            driver.close()
+            return '크롤링 완료'
+        else:
+            print("Nothing")
+
+
+
+    def show_csv(self):
+        f = open(savepath, 'r', encoding=encoding)
+        rdr = csv.reader(f)
+        for line in rdr:
+            return line
+        f.close()
+
+
+
+stroke_menu = ["Exit",  # 0
+               "naver_movie_review",# 1
+               "show_csv" #2
+               ]
+stroke_lambda = {
+    "1": lambda x: x.naver_movie_review(),
+    "2": lambda x: x.show_csv(),
+
+}
+if __name__ == '__main__':
+    stroke = ScrapService()
+    while True:
+        [print(f"{i}. {j}") for i, j in enumerate(stroke_menu)]
+        menu = input('메뉴선택: ')
+        if menu == '0':
+            print("종료")
+            break
+        else:
+            try:
+                stroke_lambda[menu](stroke)
+            except KeyError as e:
+                if 'some error message' in str(e):
+                    print('Caught error message')
+                else:
+                    print("Didn't catch error message")

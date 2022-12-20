@@ -5,7 +5,7 @@ import {Navigation2,  Footer} from "common"
 // import image from '../images/fashion.png'
 
 import { Counter, Schedule } from "../../../api"
-import { FashionContainer, IrisContainer, LoginContainer, MnistContainer, SignUpContainer, StrokeContainer,  } from "exrc"
+import { FashionContainer, IrisContainer, LoginContainer, MnistContainer, NaverMovieContainer, SignUpContainer, StrokeContainer,  } from "exrc"
 
 
 const Home = () => {
@@ -30,6 +30,7 @@ const Home = () => {
                 <Route path="/iris" element={<IrisContainer/>}></Route>
                 <Route path="/fashion" element={<FashionContainer/>}></Route>
                 <Route path="/mnist" element={<MnistContainer/>}></Route>
+                <Route path="/crawler" element={<NaverMovieContainer/>}></Route>
             </Routes>
             </td>
         </tr>

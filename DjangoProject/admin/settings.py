@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'multiplex',
     'shop',
     'exrc',
+    'webcrawler',
     "rest_framework"
 ]
 

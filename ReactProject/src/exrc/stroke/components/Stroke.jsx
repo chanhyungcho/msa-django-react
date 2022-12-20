@@ -2,6 +2,7 @@ import { apiStroke } from "../api"
 
 
 const Stroke = () => {
+    
     const onClick = e => {
         e.preventDefault()
         apiStroke()

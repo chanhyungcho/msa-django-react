@@ -15,3 +15,6 @@ export {default as IrisContainer} from "exrc/dlearn/iris/containers/IrisContaine
 
 export {default as Mnist} from "exrc/dlearn/mnist/components/Mnist"
 export {default as MnistContainer} from "exrc/dlearn/mnist/containers/MnistContainer"
+
+export {default as NaverMovie} from "exrc/webcrawler/components/NaverMovie"
+export {default as NaverMovieContainer} from "exrc/webcrawler/containers/NaverMovieContainer"

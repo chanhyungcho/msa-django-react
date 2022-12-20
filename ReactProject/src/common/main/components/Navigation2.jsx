@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+// import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+// import RestoreIcon from '@mui/icons-material/Restore';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Link } from "react-router-dom"
 
 const Navigation2 =() => {
@@ -28,6 +28,7 @@ const Navigation2 =() => {
         <Link to = '/iris'style={{width:60, margin:10}}>Iris</Link>
         <Link to = '/fashion'style={{width:60, margin:10}}>Fashion</Link>
         <Link to = '/mnist'style={{width:60, margin:10}}>Mnist</Link>
+        <Link to = '/crawler'style={{width:60, margin:10}}>Crawling</Link>
       </BottomNavigation>
     </Box>
   );
