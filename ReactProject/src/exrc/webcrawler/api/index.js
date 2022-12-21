@@ -1,8 +1,7 @@
 import {server} from 'context'
-const dlearnService = {
+const webcrawlerService  = {
     apiCrawler
 }
-
 function handleResponse(response){ 
     return response.text()
         .then(text =>{
@@ -18,21 +17,14 @@ function handleResponse(response){
             return data
         })
     }
-async function apiCrawler(id){
-    const requestOption = {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(id)
-    }
-
-    fetch(`${server}webcrawler/crawler`, requestOption)
+async function apiCrawler(){
+    const res = await fetch(`${server}exrc/webcrawler/crawler`)
     .then(handleResponse)
-    .then(data => {
-        alert(JSON.stringify(data))
-    })
+    .then(data => JSON.stringify(data))
     .catch((error) => {
-        alert('error :::: '+error)
-    })
+        alert('error :::: '+error);
+    });
+    return Promise.resolve(res)
+    
 }
-
-export default dlearnService
+export default webcrawlerService
